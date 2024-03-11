@@ -21,7 +21,7 @@ export class Home extends React.Component {
       console.log("Creating task with title: ", this.state.taskInput);
       event.preventDefault();
       this.setState({
-        todos: this.state.lista.concat([{
+        lista: this.state.lista.concat([{
             title: this.state.taskInput,
             done: false,
             id: Math.random() * 10
