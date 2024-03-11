@@ -60,4 +60,6 @@ body {
 
   .todo-count {
     color: gray;
+    margin-top: 5%;
+    margin-left: 30%;
   }

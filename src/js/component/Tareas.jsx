@@ -53,7 +53,7 @@ export class Tareas extends React.Component {
             <input
               autoFocus={true}
               className="new-lista"
-              placeholder="Que necesitas hacer?"
+              placeholder="              Que necesitas hacer?"
               value={this.state.taskInput}
               onChange={(evt) => this.setState({ taskInput: evt.target.value}) }
             />
