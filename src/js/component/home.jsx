@@ -7,7 +7,7 @@ export class Home extends React.Component {
         super();
         
         this.state = { 
-          todos: [
+          lista: [
             {done: false, title: 'Hacer la cama', id: Math.random() * 10},
             {done: false, title: 'Vestir a los niños', id: Math.random() * 10},
             {done: false, title: 'Comer', id: Math.random() * 10},
@@ -17,11 +17,11 @@ export class Home extends React.Component {
         };
     }
     
-    handleFormSubmit(e) {
+    handleFormSubmit(event) {
       console.log("Creating task with title: ", this.state.taskInput);
-      e.preventDefault();
+      event.preventDefault();
       this.setState({
-        todos: this.state.todos.concat([{
+        todos: this.state.lista.concat([{
             title: this.state.taskInput,
             done: false,
             id: Math.random() * 10
@@ -32,12 +32,12 @@ export class Home extends React.Component {
     
     deleteTask(taskId){
         this.setState({
-            todos: this.state.todos.filter((task) => task.id !== taskId)
+            lista: this.state.lista.filter((task) => task.id !== taskId)
         });
     }
 
   render() {
-    var tasksToRender = this.state.todos.map((task) => {
+    var tasksToRender = this.state.lista.map((task) => {
 	       return (<li key={task.id}>
                   <div className="view">
                     <label>{task.title}</label>
@@ -52,7 +52,7 @@ export class Home extends React.Component {
           <form onSubmit={this.handleFormSubmit.bind(this)}>
             <input
               autoFocus={true}
-              className="new-todo"
+              className="new-lista"
               placeholder="Que necesitas hacer?"
               value={this.state.taskInput}
               onChange={(evt) => this.setState({ taskInput: evt.target.value}) }
@@ -67,7 +67,7 @@ export class Home extends React.Component {
         <footer className="footer">
           <span className="todo-count">
             <strong>
-              {this.state.todos.filter(key => !key.done).length}
+              {this.state.lista.filter(key => !key.done).length}
             </strong> cosas por hacer
           </span>
         </footer>
